@@ -1,0 +1,52 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner input = new Scanner(System.in);
+        float changeOwed;
+
+        do {
+            System.out.println("How much change is owed? ");
+            changeOwed = input.nextFloat();
+
+
+        } while (changeOwed<=0); // loop until changeOwed is positive
+
+        int cents = Math.round(changeOwed * 100);
+        int quarters = 0;
+        int dimes = 0;
+        int nickels = 0;
+        int pennies = 0;
+
+        while(cents - 25 >=0) {
+            cents = cents - 25;
+            quarters++;
+        }
+
+        while(cents - 10 >=0) {
+            cents = cents - 10;
+            dimes++;
+        }
+
+        while(cents - 5 >=0) {
+            cents = cents - 5;
+            nickels++;
+        }
+
+        while(cents - 1 >=0) {
+            cents = cents - 1;
+            pennies++;
+        }
+
+        int coinNum = quarters + dimes + nickels + pennies;
+
+
+        System.out.println("Total number of coins: " + coinNum);
+
+        }
+    }
+
